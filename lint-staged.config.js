@@ -1,8 +1,8 @@
 function config() {
   return {
-    "*.{js,jsx,ts,tsx}": ["next lint --fix", "prettier --write", "git add"],
-    "*.{css,scss}": ["prettier --write", "git add"],
+    "*.{js,jsx,ts,tsx}": ["prettier --write"],
+    "*.{css,scss}": ["prettier --write"],
   }
 }
 
-export default config()
+module.exports = config()
