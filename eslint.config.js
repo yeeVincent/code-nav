@@ -38,4 +38,5 @@ module.exports = {
       },
     ], // 适配 Next.js 的 Link 组件
   },
+  ignorePatterns: ["node_modules/", "build/", "dist/", "*.min.js", "public/"],
 }
