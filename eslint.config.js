@@ -25,6 +25,7 @@ module.exports = {
   },
   plugins: ["react-hooks", "promise"],
   rules: {
+    "no-undef": "error",
     "react-hooks/rules-of-hooks": "error",
     semi: ["error", "never"],
     "react/jsx-one-expression-per-line": "off",
@@ -38,5 +39,5 @@ module.exports = {
       },
     ], // 适配 Next.js 的 Link 组件
   },
-  ignorePatterns: ["node_modules/", "build/", "dist/", "*.min.js", "public/"],
+  ignorePatterns: ["node_modules/", "build/", "dist/"],
 }
