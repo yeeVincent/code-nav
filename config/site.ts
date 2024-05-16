@@ -6,7 +6,7 @@ export const siteConfig = {
   mainNav: [
     {
       title: "柴犬信息",
-      href: "/",
+      href: "/shiba",
     },
     {
       title: "作者信息",

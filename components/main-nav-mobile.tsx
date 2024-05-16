@@ -15,6 +15,7 @@ import {
   DrawerDescription,
   DrawerFooter,
   DrawerHeader,
+  DrawerPortal,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
@@ -27,21 +28,17 @@ interface MainNavProps {
 export function MainNavMobile({ items }: MainNavProps) {
   return (
     <div className="md:hidden flex">
-      <Drawer>
+      <Drawer direction="left">
         <DrawerTrigger>
           <Icons.alignJustify className="" />
         </DrawerTrigger>
-        <DrawerContent>
+        <DrawerContent className="left-0 top-0 w-2/3 mt-0 rounded-l-none">
           <DrawerHeader>
-            <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-            <DrawerDescription>This action cannot be undone.</DrawerDescription>
+            <DrawerTitle>smartluobo.cn</DrawerTitle>
+            <DrawerDescription>小柴柴信息都在这</DrawerDescription>
           </DrawerHeader>
-          <DrawerFooter>
-            <Button>Submit</Button>
-            <DrawerClose>
-              <Button variant="outline">Cancel</Button>
-            </DrawerClose>
-          </DrawerFooter>
+
+          <DrawerFooter></DrawerFooter>
         </DrawerContent>
       </Drawer>
     </div>
