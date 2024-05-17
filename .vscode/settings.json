@@ -1,4 +1,25 @@
 {
   "typescript.tsdk": "../../node_modules/.pnpm/typescript@4.9.5/node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "cSpell.words": [
+    "shiba",
+    "shibas",
+    "api",
+    "contentlayer",
+    "/uuid*/",
+    "uuidv4",
+    "iconify",
+    "antfu",
+    "ahook",
+    "ahooks",
+    "zustand",
+    "daisyui",
+    "tailwindcss",
+    "unocss",
+    "headlessui",
+    "commitlint",
+    "btn",
+
+    "sheld"
+  ]
 }

@@ -1,10 +1,10 @@
 import ListLayout from "@/layout/ListLayout"
-import { Post, allPosts } from "contentlayer/generated"
+import { allShibas } from "contentlayer/generated"
 
 export default function Menu(props: any) {
   return (
     <div {...props}>
-      <ListLayout posts={allPosts} title={"柴犬信息"}></ListLayout>
+      <ListLayout shibas={allShibas} title={"柴犬信息"}></ListLayout>
     </div>
   )
 }

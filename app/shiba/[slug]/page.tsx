@@ -1,17 +1,19 @@
-import { allPosts } from "contentlayer/generated"
+import { allShibas } from "contentlayer/generated"
 import { format, parseISO } from "date-fns"
 
 export const generateStaticParams = async () =>
-  allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
+  allShibas.map((post) => ({ slug: post._raw.flattenedPath }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+  const post = allShibas.find((post) => post._raw.flattenedPath === params.slug)
+  console.log(params.slug, "params.slug")
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
   return { title: post.title }
 }
 
-const PostLayout = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+const ShibaLayout = ({ params }: { params: { slug: string } }) => {
+  const post = allShibas.find((post) => post._raw.flattenedPath === params.slug)
+  console.log(params.slug, "params.slug")
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
   return (
@@ -30,4 +32,4 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   )
 }
 
-export default PostLayout
+export default ShibaLayout

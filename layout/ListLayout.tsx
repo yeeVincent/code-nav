@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 // import Link from '@/components/Link'
 // import Tag from '@/components/Tag'
 // import siteMetadata from "@/data/siteMetadata"
-import type { Post } from "contentlayer/generated"
+import type { Shiba } from "contentlayer/generated"
 
 // import { CoreContent } from "pliny/utils/contentlayer"
 // import { formatDate } from "pliny/utils/formatDate"
@@ -16,9 +16,9 @@ interface PaginationProps {
   currentPage: number
 }
 interface ListLayoutProps {
-  posts: Post[]
+  shibas: Shiba[]
   title: string
-  initialDisplayPosts?: Post[]
+  initialDisplayShibas?: Shiba[]
   pagination?: PaginationProps
 }
 
@@ -63,19 +63,20 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
 }
 
 export default function ListLayout({
-  posts,
+  shibas,
   title,
-  initialDisplayPosts = [],
+  initialDisplayShibas = [],
   pagination,
 }: ListLayoutProps) {
   const [searchValue, setSearchValue] = useState("")
-  const filteredBlogPosts = posts.filter((post) => {
+  console.log(shibas, "shibas")
+  const filteredBlogPosts = shibas.filter((post) => {
     const searchContent = post.title + post.body
     return searchContent.toLowerCase().includes(searchValue.toLowerCase())
   })
 
   const displayPosts =
-    initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
+    initialDisplayShibas.length > 0 && !searchValue ? initialDisplayShibas : filteredBlogPosts
 
   return (
     <div className="divide-gray-200 dark:divide-gray-700 hidden lg:block ">

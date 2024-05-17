@@ -1,13 +1,13 @@
 import Link from "next/link"
 import ListLayout from "@/layout/ListLayout"
-import { Post, allPosts } from "contentlayer/generated"
+import { allShibas } from "contentlayer/generated"
 import { compareDesc, format, parseISO } from "date-fns"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 
 export default function IndexPage() {
-  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+  const posts = allShibas.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
   return (
     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
       <div className="mx-auto max-w-xl py-8">
