@@ -8,6 +8,8 @@ import { usePathname } from "next/navigation"
 // import siteMetadata from "@/data/siteMetadata"
 import type { Shiba } from "contentlayer/generated"
 
+import { cn } from "@/lib/utils"
+
 // import { CoreContent } from "pliny/utils/contentlayer"
 // import { formatDate } from "pliny/utils/formatDate"
 
@@ -20,6 +22,7 @@ interface ListLayoutProps {
   title: string
   initialDisplayShibas?: Shiba[]
   pagination?: PaginationProps
+  className?: string
 }
 
 function Pagination({ totalPages, currentPage }: PaginationProps) {
@@ -66,7 +69,7 @@ export default function ListLayout({
   shibas,
   title,
   initialDisplayShibas = [],
-  pagination,
+  className,
 }: ListLayoutProps) {
   const [searchValue, setSearchValue] = useState("")
   // console.log(shibas, "shibas")
@@ -79,8 +82,8 @@ export default function ListLayout({
     initialDisplayShibas.length > 0 && !searchValue ? initialDisplayShibas : filteredBlogPosts
 
   return (
-    <div className="divide-gray-200 dark:divide-gray-700 hidden lg:block ">
-      <div className="space-y-1 pb-6 pt-6 pl-6 md:space-y-3">
+    <div className={cn(`divide-gray-200 dark:divide-gray-700 hidden lg:block `, className)}>
+      <div className="space-y-1 pt-6 md:space-y-3">
         <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100 md:leading-14 ">
           {title}
         </h1>
@@ -90,17 +93,14 @@ export default function ListLayout({
         {displayPosts.map((post) => {
           const { date, title, url } = post
           return (
-            <li key={title} className="py-1">
-              <h2 className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                <div className="space-y-3 xl:col-span-3">
-                  <div>
-                    <h3 className="text-sm  leading-8 tracking-tight">
-                      <Link href={`/${url}`} className="text-gray-900 dark:text-gray-100">
-                        {title}
-                      </Link>
-                    </h3>
-                  </div>
-                </div>
+            <li key={title} className="my-3">
+              <h2 className="">
+                <Link
+                  href={`/${url}`}
+                  className="md:text-base text-sm text-gray-900 dark:text-gray-100"
+                >
+                  {title}
+                </Link>
               </h2>
             </li>
           )
