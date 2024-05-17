@@ -69,7 +69,7 @@ export default function ListLayout({
   pagination,
 }: ListLayoutProps) {
   const [searchValue, setSearchValue] = useState("")
-  console.log(shibas, "shibas")
+  // console.log(shibas, "shibas")
   const filteredBlogPosts = shibas.filter((post) => {
     const searchContent = post.title + post.body
     return searchContent.toLowerCase().includes(searchValue.toLowerCase())

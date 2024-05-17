@@ -6,14 +6,14 @@ export const generateStaticParams = async () =>
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const post = allShibas.find((post) => post._raw.flattenedPath === params.slug)
-  console.log(params.slug, "params.slug")
+  // console.log(params.slug, "params.slug")
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
   return { title: post.title }
 }
 
 const ShibaLayout = ({ params }: { params: { slug: string } }) => {
   const post = allShibas.find((post) => post._raw.flattenedPath === params.slug)
-  console.log(params.slug, "params.slug")
+  // console.log(params.slug, "params.slug")
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
   return (

@@ -5,20 +5,18 @@ import { useMDXComponent } from "next-contentlayer2/hooks"
 
 import { mdxButton } from "@/components/mdx"
 
-async function ShibaCard(Shiba: Shiba) {
+function ShibaCard(Shiba: Shiba) {
   const MDXContent = useMDXComponent(Shiba.body.code)
   return (
-    <article className="mb-8">
-      <h2 className="mb-1 text-xl">
-        <Link href={Shiba.url}>
-          <div className="text-blue-700 hover:text-blue-900 dark:text-blue-400">{Shiba.title}</div>
-        </Link>
-      </h2>
-      <time dateTime={Shiba.date} className="mb-2 block text-xs text-gray-600">
+    <article className="mt-8">
+      <h2 className={"ShibaLayout-title text-3xl"}>{Shiba.title}</h2>
+      <time dateTime={Shiba.date} className="block text-xs text-gray-600">
         {format(parseISO(Shiba.date), "LLLL d, yyyy")}
       </time>
       {/* <div className="text-sm space-y-3" dangerouslySetInnerHTML={{ __html: post.body.html }} /> */}
-      <MDXContent components={{ Button: mdxButton }} />
+      <div className="my-5">
+        <MDXContent components={{ Button: mdxButton }} />
+      </div>
     </article>
   )
 }
