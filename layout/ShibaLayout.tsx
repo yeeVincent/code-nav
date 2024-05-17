@@ -1,3 +1,4 @@
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher"
 import Link from "next/link"
 import { Shiba, allShibas } from "contentlayer/generated"
 import { compareDesc, format, parseISO } from "date-fns"
@@ -5,7 +6,12 @@ import { useMDXComponent } from "next-contentlayer2/hooks"
 
 import { mdxButton } from "@/components/mdx"
 
-function ShibaCard(Shiba: Shiba) {
+interface ILayoutType {
+  articleName: Params
+  className: string
+}
+
+function ShibaCard({ Shiba }: { Shiba: Shiba }) {
   const MDXContent = useMDXComponent(Shiba.body.code)
   return (
     <article className="mt-8">
@@ -20,13 +26,10 @@ function ShibaCard(Shiba: Shiba) {
     </article>
   )
 }
-export default function ShibaLayout(props: any) {
-  const shibas = allShibas.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-  return (
-    <div {...props}>
-      {shibas.map((shiba, idx) => (
-        <ShibaCard key={idx} {...shiba} />
-      ))}
-    </div>
-  )
+export default function ShibaLayout(props: ILayoutType) {
+  const { articleName = "" } = props
+  const Shiba = allShibas.find((shiba) => shiba.title === articleName)
+
+  // Shiba && console.log(convertToPinyin(Shiba?.title))
+  return <div className={props.className}>{Shiba && <ShibaCard Shiba={Shiba} />}</div>
 }
