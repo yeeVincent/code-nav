@@ -24,7 +24,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
       </div>
       <div
         className="[&>*]:mb-3 [&>*:last-child]:mb-0"
-        dangerouslySetInnerHTML={{ __html: post.body.html }}
+        dangerouslySetInnerHTML={{ __html: post.body.code }}
       />
     </article>
   )
