@@ -17,6 +17,8 @@ export const Shiba = defineDocumentType(() => ({
   fields: {
     title: { type: "string", required: true },
     date: { type: "date", required: true },
+    categories: { type: "string", required: true },
+    tag: { type: "list", default: [], of: { type: "string" } },
   },
   computedFields,
 }))
