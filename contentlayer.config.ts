@@ -1,5 +1,7 @@
 import { defineDocumentType, makeSource } from "contentlayer2/source-files"
 
+import type { Shiba as IShiba } from ".contentlayer/generated/types"
+
 export const Shiba = defineDocumentType(() => ({
   name: "Shiba",
   filePathPattern: `**/*.mdx`,
@@ -11,7 +13,7 @@ export const Shiba = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (shiba: any) => {
+      resolve: (shiba: IShiba) => {
         return `data/shiba/${shiba._raw.flattenedPath}`
       },
     },
