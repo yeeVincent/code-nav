@@ -1,23 +1,35 @@
-import { defineDocumentType, makeSource } from "contentlayer2/source-files"
+import { ComputedFields, defineDocumentType, makeSource } from "contentlayer2/source-files"
 
-import type { Shiba as IShiba } from ".contentlayer/generated/types"
-
+const computedFields: ComputedFields = {
+  slug: {
+    type: "string",
+    resolve: (doc) => doc._raw.flattenedPath,
+  },
+  filePath: {
+    type: "string",
+    resolve: (doc) => doc._raw.sourceFilePath,
+  },
+}
 export const Shiba = defineDocumentType(() => ({
   name: "Shiba",
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: `shiba/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
     date: { type: "date", required: true },
   },
-  computedFields: {
-    url: {
-      type: "string",
-      resolve: (shiba: IShiba) => {
-        return `data/shiba/${shiba._raw.flattenedPath}`
-      },
-    },
-  },
+  computedFields,
 }))
 
-export default makeSource({ contentDirPath: "data/shiba", documentTypes: [Shiba] })
+export const Authors = defineDocumentType(() => ({
+  name: "Authors",
+  filePathPattern: "author/**/*.mdx",
+  contentType: "mdx",
+  fields: {
+    title: { type: "string", required: true },
+    date: { type: "date", required: true },
+  },
+  computedFields,
+}))
+
+export default makeSource({ contentDirPath: "data", documentTypes: [Shiba, Authors] })
