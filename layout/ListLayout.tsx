@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import type { Shiba } from "contentlayer/generated"
 
+import { ShibaCategoriesOrderMap } from "@/lib/constant"
 import { cn } from "@/lib/utils"
 
 interface PaginationProps {
@@ -25,6 +26,7 @@ export default function ListLayout({
   className,
 }: ListLayoutProps) {
   const [searchValue, setSearchValue] = useState("")
+  ShibaCategoriesOrderMap
 
   const catagories = shibas.map((post) => post.categories)
 
