@@ -7,7 +7,7 @@ import { useMDXComponent } from "next-contentlayer2/hooks"
 import { mdxButton } from "@/components/mdx"
 
 interface ILayoutType {
-  articleName: Params
+  articleName: string
   className: string
 }
 
@@ -29,6 +29,7 @@ function ShibaCard({ Shiba }: { Shiba: Shiba }) {
 export default function ShibaLayout(props: ILayoutType) {
   const { articleName = "" } = props
   const Shiba = allShibas.find((shiba) => shiba.title === articleName)
+  console.log(articleName, "articleName")
 
   // Shiba && console.log(convertToPinyin(Shiba?.title))
   return <div className={props.className}>{Shiba && <ShibaCard Shiba={Shiba} />}</div>

@@ -1,12 +1,12 @@
 "use client"
 
-import { useParams } from "next/navigation"
+import { useParams, useSearchParams } from "next/navigation"
 import ShibaLayout from "@/layout/ShibaLayout"
 
 import Menu from "@/components/menu"
 
 export default function Shiba() {
-  const articleName = useParams()
+  const articleName = useSearchParams().get("articleName") || ""
 
   // const { articleName } = router.query
   // console.log(articleName, "articleName")
