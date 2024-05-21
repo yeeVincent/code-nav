@@ -5,16 +5,21 @@ export const generateStaticParams = async () =>
   allShibas.map((post) => ({ slug: post._raw.flattenedPath }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allShibas.find((post) => post._raw.flattenedPath === params.slug)
+  const decodedSlug = decodeURIComponent(params.slug)
+  const post = allShibas.find((post) => {
+    console.log(post._raw.flattenedPath, "post._raw.flattenedPath", params.slug, "params.slug")
+    return post._raw.flattenedPath === decodedSlug
+  })
   // console.log(params.slug, "params.slug")
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  if (!post) throw new Error(`Post not found for slug: ${decodedSlug}`)
   return { title: post.title }
 }
 
 const ShibaLayout = ({ params }: { params: { slug: string } }) => {
-  const post = allShibas.find((post) => post._raw.flattenedPath === params.slug)
+  const decodedSlug = decodeURIComponent(params.slug)
+  const post = allShibas.find((post) => post._raw.flattenedPath === decodedSlug)
   // console.log(params.slug, "params.slug")
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  if (!post) throw new Error(`Post not found for slug: ${decodedSlug}`)
 
   return (
     <article className="mx-auto max-w-xl py-8">
