@@ -7,13 +7,15 @@ import { useMDXComponent } from "next-contentlayer2/hooks"
 
 import { mdxButton } from "@/components/mdx"
 
+type IContent = Shiba | Authors
+
 interface ILayoutType {
   articleName: string
   className: string
-  contentList: Shiba[] | Authors[]
+  contentList: IContent[]
 }
 
-function Card({ content }: { content: Shiba | Authors }) {
+function Card({ content }: { content: IContent }) {
   const MDXContent = useMDXComponent(content.body.code)
   return (
     <article className="mt-8">
@@ -28,8 +30,8 @@ function Card({ content }: { content: Shiba | Authors }) {
     </article>
   )
 }
-export default function ShibaLayout(props: ILayoutType) {
-  const { articleName = "", contentList } = props
+export default function ContentLayout(props: ILayoutType) {
+  const { articleName = "", contentList = [] } = props
   const content = contentList.find((content) => content.title === articleName)
   console.log(articleName, "articleName")
 
