@@ -25,7 +25,7 @@ const AuthorLayout = ({ params }: { params: { slug: string } }) => {
         <h1 className="text-3xl font-bold">{post.title}</h1>
       </div>
       <div
-        className="[&>*]:mb-3 [&>*:last-child]:mb-0"
+        className="[&>*:last-child]:mb-0 [&>*]:mb-3"
         dangerouslySetInnerHTML={{ __html: post.body.code }}
       />
     </article>

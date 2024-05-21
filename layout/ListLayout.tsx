@@ -39,9 +39,9 @@ export default function ListLayout({
     initialDisplayShibas.length > 0 && !searchValue ? initialDisplayShibas : filteredBlogPosts
 
   return (
-    <div className={cn(`divide-gray-200 dark:divide-gray-700 hidden lg:block `, className)}>
+    <div className={cn(`hidden divide-gray-200 dark:divide-gray-700 lg:block `, className)}>
       <div className="space-y-1 pt-6 md:space-y-3">
-        <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100 md:leading-14 ">
+        <h1 className="md:leading-14 text-xl font-bold text-gray-900 dark:text-gray-100 ">
           {title}
         </h1>
       </div>
@@ -54,7 +54,7 @@ export default function ListLayout({
               <h2 className="">
                 <Link
                   href={`?articleName=${title}`}
-                  className="md:text-base text-sm text-gray-900 dark:text-gray-100"
+                  className="text-sm text-gray-900 dark:text-gray-100 md:text-base"
                 >
                   {title}
                 </Link>

@@ -12,7 +12,7 @@ export default function Shiba() {
 
   return (
     <div className="flex flex-row justify-center px-5 ">
-      <ListLayout className="md:min-w-60 mr-5" shibas={allShibas} title={"柴犬信息"}></ListLayout>
+      <ListLayout className="mr-5 md:min-w-60" shibas={allShibas} title={"柴犬信息"}></ListLayout>
       <ContentLayout className="" articleName={articleName} contentList={allShibas}></ContentLayout>
     </div>
   )

@@ -1,7 +1,7 @@
 function config() {
   return {
-    "*.{js,jsx,ts,tsx}": ["prettier --write"],
-    "*.{css,scss}": ["prettier --write"],
+    "*.+(js|jsx|ts|tsx)": ["eslint --fix"],
+    "*.+(js|jsx|ts|tsx|json|css|md|mdx)": ["prettier --write"],
   }
 }
 

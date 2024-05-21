@@ -27,12 +27,12 @@ interface MainNavProps {
 
 export function MainNavMobile({ items }: MainNavProps) {
   return (
-    <div className="md:hidden flex">
+    <div className="flex md:hidden">
       <Drawer direction="left">
         <DrawerTrigger>
           <Icons.alignJustify className="" />
         </DrawerTrigger>
-        <DrawerContent className="left-0 top-0 w-2/3 mt-0 rounded-l-none">
+        <DrawerContent className="left-0 top-0 mt-0 w-2/3 rounded-l-none">
           <DrawerHeader>
             <DrawerTitle>smartluobo.cn</DrawerTitle>
             <DrawerDescription>小柴柴信息都在这</DrawerDescription>
