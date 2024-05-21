@@ -1,5 +1,7 @@
 import { ComputedFields, defineDocumentType, makeSource } from "contentlayer2/source-files"
 
+import { ShibaCategoriesEnum } from "./types/shiba"
+
 const computedFields: ComputedFields = {
   slug: {
     type: "string",
@@ -17,7 +19,7 @@ export const Shiba = defineDocumentType(() => ({
   fields: {
     title: { type: "string", required: true },
     date: { type: "date", required: true },
-    categories: { type: "string", required: true },
+    categories: { type: "enum", required: true, options: Object.values(ShibaCategoriesEnum) },
     tag: { type: "list", default: [], of: { type: "string" } },
   },
   computedFields,
