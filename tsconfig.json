@@ -17,9 +17,12 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@/*": ["/*"],
+      "@/lib/*": ["lib/*"],
+      "@/config/*": ["config/*"],
       "@/components/*": ["components/*"],
       "@/data/*": ["data/*"],
-      "@/layouts/*": ["layouts/*"],
+      "@/layout/*": ["layout/*"],
       "@/css/*": ["css/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     },

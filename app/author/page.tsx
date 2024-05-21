@@ -1,8 +1,8 @@
 "use client"
 
 import { useSearchParams } from "next/navigation"
-import { allAuthors } from "@/.contentlayer/generated"
 import ContentLayout from "@/layout/ContentLayout"
+import { allAuthors } from "contentlayer/generated"
 
 export default function Shiba() {
   const FirstShibaArticle = allAuthors.at(0)

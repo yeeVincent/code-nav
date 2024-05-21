@@ -1,9 +1,9 @@
 "use client"
 
 import { useParams, useSearchParams } from "next/navigation"
-import { allShibas } from "@/.contentlayer/generated"
 import ContentLayout from "@/layout/ContentLayout"
 import ListLayout from "@/layout/ListLayout"
+import { allShibas } from "contentlayer/generated"
 
 export default function Shiba() {
   const FirstShibaArticle = allShibas.at(0)
