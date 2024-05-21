@@ -5,16 +5,18 @@ export const generateStaticParams = async () =>
   allAuthors.map((post) => ({ slug: post._raw.flattenedPath }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allAuthors.find((post) => post._raw.flattenedPath === params.slug)
-  // console.log(params.slug, "params.slug")
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  const decodedSlug = decodeURIComponent(params.slug)
+  const post = allAuthors.find((post) => post._raw.flattenedPath === decodedSlug)
+  // console.log(decodedSlug, "decodedSlug")
+  if (!post) throw new Error(`Post not found for slug: ${decodedSlug}`)
   return { title: post.title }
 }
 
 const AuthorLayout = ({ params }: { params: { slug: string } }) => {
-  const post = allAuthors.find((post) => post._raw.flattenedPath === params.slug)
-  // console.log(params.slug, "params.slug")
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  const decodedSlug = decodeURIComponent(params.slug)
+  const post = allAuthors.find((post) => post._raw.flattenedPath === decodedSlug)
+  // console.log(decodedSlug, "decodedSlug")
+  if (!post) throw new Error(`Post not found for slug: ${decodedSlug}`)
 
   return (
     <article className="mx-auto max-w-xl py-8">
