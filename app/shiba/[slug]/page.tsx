@@ -2,13 +2,18 @@ import { allShibas } from "contentlayer/generated"
 import { format, parseISO } from "date-fns"
 
 export const generateStaticParams = async () =>
-  allShibas.map((post) => ({ slug: post._raw.flattenedPath }))
+  allShibas.map((post) => ({ slug: post._raw.sourceFileName.split(".mdx")[0] }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const decodedSlug = decodeURIComponent(params.slug)
   const post = allShibas.find((post) => {
-    console.log(post._raw.flattenedPath, "post._raw.flattenedPath", params.slug, "params.slug")
-    return post._raw.flattenedPath === decodedSlug
+    console.log(
+      post._raw.sourceFileName.split(".mdx")[0],
+      "post._raw.sourceFileName",
+      decodedSlug,
+      "params.slug"
+    )
+    return post._raw.sourceFileName.split(".mdx")[0] === decodedSlug
   })
   // console.log(params.slug, "params.slug")
   if (!post) throw new Error(`Post not found for slug: ${decodedSlug}`)
@@ -16,8 +21,11 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
 }
 
 const ShibaLayout = ({ params }: { params: { slug: string } }) => {
+  // console.log(params.slug, "params.slug")
+  // const paramsFromURL =
+  // console.log(paramsFromURL, "params")
   const decodedSlug = decodeURIComponent(params.slug)
-  const post = allShibas.find((post) => post._raw.flattenedPath === decodedSlug)
+  const post = allShibas.find((post) => post._raw.sourceFileName.split(".mdx")[0] === decodedSlug)
   // console.log(params.slug, "params.slug")
   if (!post) throw new Error(`Post not found for slug: ${decodedSlug}`)
 
