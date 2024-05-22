@@ -22,19 +22,14 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   return { title: post.title }
 }
 
-const ShibaLayout = ({ params }: { params: { slug: string } }) => {
+const ShibaDynamic = ({ params }: { params: { slug: string } }) => {
   const decodedSlug = decodeURIComponent(params.slug)
   const content = allShibas.find(
     (content) => content._raw.sourceFileName.split(".mdx")[0] === decodedSlug
   )
   if (!content) throw new Error(`content not found for slug: ${decodedSlug}`)
 
-  return (
-    <div className="flex flex-row justify-center px-5 ">
-      <ListLayout className="mr-5 md:min-w-60" shibas={allShibas} title={"柴犬信息"}></ListLayout>
-      <ContentLayout className="" content={content}></ContentLayout>
-    </div>
-  )
+  return <ContentLayout className="" content={content}></ContentLayout>
 }
 
-export default ShibaLayout
+export default ShibaDynamic

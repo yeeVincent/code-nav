@@ -69,7 +69,7 @@ export default function ListLayout({
                   <li key={title} className="my-3">
                     <h2 className="">
                       <Link
-                        href={`?articleName=${title}`}
+                        href={`/shiba/${title}`}
                         className="text-sm text-gray-900 dark:text-gray-100 md:text-base"
                       >
                         {title}
