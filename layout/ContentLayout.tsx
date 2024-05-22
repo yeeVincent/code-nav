@@ -18,7 +18,7 @@ interface ILayoutType {
 function Card({ content, ...props }: { content: IContent; className: string }) {
   const MDXContent = useMDXComponent(content.body.code)
   return (
-    <article className={cn("mt-8 overflow-scroll shiba-content-article", props.className)}>
+    <article className={cn("mt-8 overflow-scroll shiba-content-article prose", props.className)}>
       <h2 className={"ShibaLayout-title text-3xl"}>{content.title}</h2>
       <time dateTime={content.date} className="block text-xs text-gray-600">
         {format(parseISO(content.date), "LLLL d, yyyy")}

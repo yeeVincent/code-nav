@@ -1,5 +1,5 @@
 const { fontFamily } = require("tailwindcss/defaultTheme")
-
+const colors = require("tailwindcss/colors")
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -19,6 +19,10 @@ module.exports = {
         // lg: "1024px",
         // xl: "1280px",
         // "2xl": "1440px",
+      },
+      colors: {
+        primary: colors.pink,
+        gray: colors.gray,
       },
     },
     extend: {
@@ -83,9 +87,46 @@ module.exports = {
         "8xl": "90rem",
       },
     },
+    typography: ({ theme }) => ({
+      DEFAULT: {
+        css: {
+          a: {
+            color: theme("colors.primary.500"),
+            "&:hover": {
+              color: `${theme("colors.primary.600")}`,
+            },
+            code: { color: theme("colors.primary.400") },
+          },
+          "h1,h2": {
+            fontWeight: "700",
+            letterSpacing: theme("letterSpacing.tight"),
+          },
+          h3: {
+            marginTop: theme("spacing.4"), // 设置 h3 的顶部间距
+            marginBottom: theme("spacing.2"), // 设置 h3 的底部间距
+            color: theme("colors.primary.500"),
+            fontWeight: "600",
+          },
+          code: {
+            color: theme("colors.indigo.500"),
+          },
+        },
+      },
+      invert: {
+        css: {
+          a: {
+            color: theme("colors.primary.500"),
+            "&:hover": {
+              color: `${theme("colors.primary.400")}`,
+            },
+            code: { color: theme("colors.primary.400") },
+          },
+          "h1,h2,h3,h4,h5,h6": {
+            color: theme("colors.gray.100"),
+          },
+        },
+      },
+    }),
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    // require("@tailwindcss/typography")
-  ],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 }
