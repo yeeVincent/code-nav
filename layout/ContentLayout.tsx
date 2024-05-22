@@ -5,6 +5,7 @@ import { Authors, Shiba } from "contentlayer/generated"
 import { format, parseISO } from "date-fns"
 import { useMDXComponent } from "next-contentlayer2/hooks"
 
+import { cn } from "@/lib/utils"
 import { mdxButton } from "@/components/mdx"
 
 type IContent = Shiba | Authors
@@ -14,10 +15,10 @@ interface ILayoutType {
   content: IContent
 }
 
-function Card({ content }: { content: IContent }) {
+function Card({ content, ...props }: { content: IContent; className: string }) {
   const MDXContent = useMDXComponent(content.body.code)
   return (
-    <article className="mt-8">
+    <article className={cn("mt-8 overflow-scroll shiba-content-article", props.className)}>
       <h2 className={"ShibaLayout-title text-3xl"}>{content.title}</h2>
       <time dateTime={content.date} className="block text-xs text-gray-600">
         {format(parseISO(content.date), "LLLL d, yyyy")}
@@ -31,5 +32,5 @@ function Card({ content }: { content: IContent }) {
 }
 export default function ContentLayout(props: ILayoutType) {
   const { content } = props
-  return <div className={props.className}>{content && <Card content={content} />}</div>
+  return content && <Card content={content} className={props.className} />
 }

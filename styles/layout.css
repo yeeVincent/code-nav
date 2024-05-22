@@ -1,3 +1,12 @@
+.body-content {
+  height: calc(100vh - 4rem);
+}
+
 .ShibaLayout-title {
   @apply text-blue-700 hover:text-blue-900 dark:text-blue-400;
+}
+
+.shiba-content-article {
+  overflow: scroll;
+  /* height: calc(100vh - 4rem); */
 }
