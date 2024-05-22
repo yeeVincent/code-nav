@@ -53,7 +53,7 @@ export default function ListLayout({
   return (
     <div className={cn(`hidden divide-gray-200 dark:divide-gray-700 lg:block `, className)}>
       <div className="space-y-1 pt-6 md:space-y-3">
-        <h1 className="md:leading-14 text-xl font-bold text-gray-900 dark:text-gray-100 ">
+        <h1 className="md:leading-14 text-xl  text-center  font-bold text-gray-900 dark:text-gray-100 ">
           {title}
         </h1>
       </div>
@@ -61,16 +61,16 @@ export default function ListLayout({
         {!filteredBlogPosts.length && "No posts found."}
         {categoriesArray.map(({ category, items }, index) => (
           <div key={index}>
-            <div>{ShibaCategoriesNameEnum[category]}</div>
+            <div className="mt-3">{ShibaCategoriesNameEnum[category]}</div>
             <div>
               {items.map((post) => {
                 const { date, title } = post
                 return (
-                  <li key={title} className="my-3">
+                  <li key={title} className="">
                     <h2 className="">
                       <Link
                         href={`/shiba/${title}`}
-                        className="text-sm text-gray-900 dark:text-gray-100 md:text-base"
+                        className="text-sm text-gray-900 dark:text-gray-100 lg:text-base"
                       >
                         {title}
                       </Link>
