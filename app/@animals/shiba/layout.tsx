@@ -6,8 +6,8 @@ interface ILayout {
 }
 const layout = ({ children }: ILayout) => {
   return (
-    <div className="overflow-hidden body-content  flex flex-row justify-center px-5 ">
-      <ListLayout className="mr-5 md:min-w-60" shibas={allShibas} title={"柴犬信息"}></ListLayout>
+    <div className="overflow-hidden body-content  flex flex-row justify-center pl-5 md:pr-5 ">
+      <ListLayout className="mr-5 " shibas={allShibas} title={"柴犬信息"}></ListLayout>
       {children}
     </div>
   )
