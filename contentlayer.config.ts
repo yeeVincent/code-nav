@@ -1,4 +1,9 @@
 import { ComputedFields, defineDocumentType, makeSource } from "contentlayer2/source-files"
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypeHighlight from "rehype-highlight"
+import rehypeSlug from "rehype-slug"
+import remarkEmoji from "remark-emoji"
+import remarkToc from "remark-toc"
 
 import { ShibaCategoriesEnum } from "./types/shiba"
 
@@ -36,4 +41,15 @@ export const Authors = defineDocumentType(() => ({
   computedFields,
 }))
 
-export default makeSource({ contentDirPath: "data", documentTypes: [Shiba, Authors] })
+export default makeSource({
+  contentDirPath: "data",
+  documentTypes: [Shiba, Authors],
+  mdx: {
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeAutolinkHeadings, { behavior: "wrap" }],
+      remarkToc,
+      remarkEmoji,
+    ],
+  },
+})
