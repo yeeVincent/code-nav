@@ -3,7 +3,8 @@
 }
 
 .ShibaLayout-title {
-  @apply text-blue-700 hover:text-blue-900 dark:text-blue-400;
+  @apply text-black dark:text-white;
+  /* @apply text-blue-700 hover:text-blue-900 dark:text-blue-400; */
 }
 
 .shiba-content-article {
