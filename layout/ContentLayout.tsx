@@ -22,9 +22,9 @@ function Card({ content, ...props }: { content: IContent; className: string }) {
       className={cn("pr-2 mt-8  w-full shiba-content-article lg:pr-48 prose", props.className)}
     >
       <h2 className={"ShibaLayout-title text-3xl"}>{content.title}</h2>
-      <time dateTime={content.date} className="block text-xs text-gray-600">
+      {/* <time dateTime={content.date} className="block text-xs text-gray-600">
         {format(parseISO(content.date), "LLLL d, yyyy")}
-      </time>
+      </time> */}
       {/* <div className="text-sm space-y-3" dangerouslySetInnerHTML={{ __html: post.body.html }} /> */}
       <div className="my-5">
         <MDXContent components={{ Button: MdxButton, Image: MdxImage }} />

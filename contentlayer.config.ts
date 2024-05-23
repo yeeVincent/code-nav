@@ -23,7 +23,6 @@ export const Shiba = defineDocumentType(() => ({
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
-    date: { type: "date", required: true },
     categories: { type: "enum", required: true, options: Object.values(ShibaCategoriesEnum) },
     tag: { type: "list", default: [], of: { type: "string" } },
   },
