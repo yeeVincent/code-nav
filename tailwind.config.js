@@ -67,7 +67,7 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        sans: ["Inter", "var(--font-sans)", ...fontFamily.sans],
       },
       keyframes: {
         "accordion-down": {

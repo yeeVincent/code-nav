@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import "@fontsource/inter/index.css";
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -75,6 +75,7 @@
     @apply border-border;
   }
   body {
+    @apply font-sans;
     @apply bg-background text-foreground;
     font-feature-settings:
       "rlig" 1,
