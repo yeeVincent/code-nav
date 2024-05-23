@@ -8,5 +8,8 @@
 
 .shiba-content-article {
   overflow: scroll;
-  /* height: calc(100vh - 4rem); */
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }

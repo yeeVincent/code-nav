@@ -20,7 +20,7 @@ function Card({ content, ...props }: { content: IContent; className: string }) {
   return (
     <article
       className={cn(
-        "pr-2 mt-8 overflow-scroll w-full md:w-10/12 shiba-content-article  prose",
+        "pr-2 mt-8 overflow-scroll w-full md:w-10/12 shiba-content-article scrollbar-none prose",
         props.className
       )}
     >
