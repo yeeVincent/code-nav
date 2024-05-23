@@ -35,18 +35,15 @@ interface RootLayoutProps {
 export default function RootLayout({ children, animals }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en" suppressHydrationWarning className="scrollbar-none">
         <head />
         <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased overflow-hidden",
-            fontSans.variable
-          )}
+          className={cn("min-h-screen bg-background font-sans antialiased ", fontSans.variable)}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
+            <div className="relative flex min-h-screen flex-col ">
               <SiteHeader />
-              <div className=" max-w-8xl flex-1 self-center">{animals}</div>
+              <div className="w-full self-center ">{animals}</div>
             </div>
             <TailwindIndicator />
           </ThemeProvider>

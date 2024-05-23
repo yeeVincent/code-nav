@@ -19,10 +19,7 @@ function Card({ content, ...props }: { content: IContent; className: string }) {
   const MDXContent = useMDXComponent(content.body.code)
   return (
     <article
-      className={cn(
-        "pr-2 mt-8 overflow-scroll w-full md:w-10/12 shiba-content-article scrollbar-none prose",
-        props.className
-      )}
+      className={cn("pr-2 mt-8  w-full shiba-content-article lg:pr-48 prose", props.className)}
     >
       <h2 className={"ShibaLayout-title text-3xl"}>{content.title}</h2>
       <time dateTime={content.date} className="block text-xs text-gray-600">
