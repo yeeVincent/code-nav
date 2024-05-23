@@ -6,7 +6,7 @@ import { format, parseISO } from "date-fns"
 import { useMDXComponent } from "next-contentlayer2/hooks"
 
 import { cn } from "@/lib/utils"
-import { mdxButton } from "@/components/mdx"
+import { MdxButton, MdxImage } from "@/components/mdx"
 
 type IContent = Shiba | Authors
 
@@ -30,7 +30,7 @@ function Card({ content, ...props }: { content: IContent; className: string }) {
       </time>
       {/* <div className="text-sm space-y-3" dangerouslySetInnerHTML={{ __html: post.body.html }} /> */}
       <div className="my-5">
-        <MDXContent components={{ Button: mdxButton }} />
+        <MDXContent components={{ Button: MdxButton, Image: MdxImage }} />
       </div>
     </article>
   )

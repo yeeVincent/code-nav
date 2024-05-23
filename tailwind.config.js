@@ -21,7 +21,7 @@ module.exports = {
         // "2xl": "1440px",
       },
       colors: {
-        primary: colors.pink,
+        primary: colors.black,
         gray: colors.gray,
       },
     },
@@ -98,6 +98,8 @@ module.exports = {
             code: { color: theme("colors.primary.400") },
           },
           "h1,h2": {
+            marginTop: theme("spacing.4"), // 设置 h 的顶部间距
+            marginBottom: theme("spacing.2"), // 设置 h 的底部间距
             fontWeight: "700",
             letterSpacing: theme("letterSpacing.tight"),
           },
