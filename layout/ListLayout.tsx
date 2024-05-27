@@ -64,7 +64,7 @@ export default function ListLayout({
             <div className="mt-3">{ShibaCategoriesNameEnum[category]}</div>
             <div>
               {items.map((post) => {
-                const { date, title } = post
+                const { title } = post
                 return (
                   <li key={title} className="">
                     <h2 className="">
